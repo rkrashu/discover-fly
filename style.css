@@ -120,3 +120,13 @@ nav ul li a:hover, a.active{
     display: flex;
     justify-content: space-between;
 }
+.purchase-heading{
+    background: white;
+    color : black;
+    text-align: center;
+    padding: 328px 50px;
+    font-size: 55px;
+}
+#purchase-massage{
+    display: none;
+}
