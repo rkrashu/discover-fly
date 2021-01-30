@@ -119,12 +119,14 @@
                     voluptatibus quam</p>
             </div>
             </section>
-            
+
     </div>
     <div id="purchase-massage">
         <div class="purchase-heading">
-        <h1 style="font-size: 45px;">Thank you for Purchase ticket from Discover Fly. </h1>
-        <h3>You have selected <span id = first-class-amount></span> First Class & <span id= economy-class-amount></span> Economy Class Ticket. Total price is <span id = total-price></span>. </h3>
+            <h1 style="font-size: 45px;">Thank you for Purchase ticket from Discover Fly. </h1>
+            <h3>You have selected <span id=first-class-amount></span> First Class & <span
+                    id=economy-class-amount></span> Economy Class Ticket. Total price is <span id=total-price></span>.
+            </h3>
         </div>
     </div>
     <script>
@@ -185,7 +187,7 @@
 
             const economyClassTicketInput = document.getElementById("economyClass-ticket-quantity");
             const economyClassTicketQuantity = parseInt(economyClassTicketInput.value);
-            
+
             const SubTotalAmount = firstClassTicketQuantity * 150 + economyClassTicketQuantity * 100
             document.getElementById("subTotal-amount").innerText = SubTotalAmount;
 
@@ -196,7 +198,7 @@
             document.getElementById("total-amount").innerText = totalAmount;
 
         }
-        
+
     </script>
 </body>
 
