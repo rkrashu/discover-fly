@@ -129,7 +129,7 @@
         //first class decrease button
         changingQuantity("firstClass-ticket-quantity", false);
 
-        //economy class increase button
+         //economy class increase button
         changingQuantity("economyClass-ticket-quantity", true)
 
         //economy class decrease button
@@ -137,8 +137,12 @@
 
         // book now button
         document.getElementById("book-now").addEventListener("click", function(){
-            document.getElementById("main-section").style.display = "none";
+            const totalAmount = document.getElementById("total-amount")
+            const newTotalAmount = parseInt(totalAmount.innerText);
+            if(newTotalAmount>0){
+                document.getElementById("main-section").style.display = "none";
         document.getElementById("purchase-massage").style.display = "block";
+            }
         })
 
 
