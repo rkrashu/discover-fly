@@ -12,10 +12,11 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/c5f02a4ef6.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
-    <div id = "main-section">
+    <div id="main-section">
         <!--Header and Menu Section-->
         <header class="container">
             <nav>
@@ -118,9 +119,13 @@
                     voluptatibus quam</p>
             </div>
             </section>
+            
     </div>
-    <div id= "purchase-massage">
-    <h1 class="purchase-heading">Thank you for Purchase ticket from Discocer Fly. </h1>
+    <div id="purchase-massage">
+        <div class="purchase-heading">
+        <h1 style="font-size: 45px;">Thank you for Purchase ticket from Discover Fly. </h1>
+        <h3>Your Total price is <span id = total-price></span>. You have select <span id = first-class-amount></span> First Class & <span id= economy-class-amount></span> Economy Class Ticket.</h3>
+        </div>
     </div>
     <script>
         // first class increase button
@@ -129,21 +134,64 @@
         //first class decrease button
         changingQuantity("firstClass-ticket-quantity", false);
 
-         //economy class increase button
+        //economy class increase button
         changingQuantity("economyClass-ticket-quantity", true)
 
         //economy class decrease button
         changingQuantity("economyClass-ticket-quantity", false)
 
         // book now button
-        document.getElementById("book-now").addEventListener("click", function(){
+        document.getElementById("book-now").addEventListener("click", function () {
             const totalAmount = document.getElementById("total-amount")
             const newTotalAmount = parseInt(totalAmount.innerText);
-            if(newTotalAmount>0){
+            if (newTotalAmount > 0) {
                 document.getElementById("main-section").style.display = "none";
-        document.getElementById("purchase-massage").style.display = "block";
+                document.getElementById("purchase-massage").style.display = "block";
             }
+
+
+
+            const inputValue = document.getElementById("firstClass-ticket-quantity");
+            const firstClassTicketQuantity = parseInt(inputValue.value);
+            document.querySelector("#first-class-amount").innerText = firstClassTicketQuantity;
+
+
+            const input = document.getElementById("economyClass-ticket-quantity");
+            const economyClassTicketQuantity = parseInt(input.value);
+            document.querySelector("#economy-class-amount").innerText = economyClassTicketQuantity;
+
+            const SubTotalAmount = firstClassTicketQuantity * 150 + economyClassTicketQuantity * 100;
+            const vatAmount = (SubTotalAmount * .10)
+            const totalPrice = SubTotalAmount + vatAmount;
+            document.querySelector("#total-price").innerText = totalPrice;
+
         })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         function changingQuantity(id, isIncrease) {
