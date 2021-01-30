@@ -124,7 +124,7 @@
     <div id="purchase-massage">
         <div class="purchase-heading">
         <h1 style="font-size: 45px;">Thank you for Purchase ticket from Discover Fly. </h1>
-        <h3>Your Total price is <span id = total-price></span>. You have select <span id = first-class-amount></span> First Class & <span id= economy-class-amount></span> Economy Class Ticket.</h3>
+        <h3>You have selected <span id = first-class-amount></span> First Class & <span id= economy-class-amount></span> Economy Class Ticket. Total price is <span id = total-price></span>. </h3>
         </div>
     </div>
     <script>
@@ -149,15 +149,12 @@
                 document.getElementById("purchase-massage").style.display = "block";
             }
 
-
-
-            const inputValue = document.getElementById("firstClass-ticket-quantity");
-            const firstClassTicketQuantity = parseInt(inputValue.value);
+            const firstClassInputValue = document.getElementById("firstClass-ticket-quantity");
+            const firstClassTicketQuantity = parseInt(firstClassInputValue.value);
             document.querySelector("#first-class-amount").innerText = firstClassTicketQuantity;
 
-
-            const input = document.getElementById("economyClass-ticket-quantity");
-            const economyClassTicketQuantity = parseInt(input.value);
+            const economyClassInputValue = document.getElementById("economyClass-ticket-quantity");
+            const economyClassTicketQuantity = parseInt(economyClassInputValue.value);
             document.querySelector("#economy-class-amount").innerText = economyClassTicketQuantity;
 
             const SubTotalAmount = firstClassTicketQuantity * 150 + economyClassTicketQuantity * 100;
@@ -168,43 +165,17 @@
         })
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         function changingQuantity(id, isIncrease) {
             const inputValue = document.getElementById(id);
-            const firstClassTicketQuantity = parseInt(inputValue.value);
-            let newFirstClassTicketQuantity = firstClassTicketQuantity;
+            const ticketQuantity = parseInt(inputValue.value);
+            let newTicketQuantity = ticketQuantity;
             if (isIncrease == true) {
-                newFirstClassTicketQuantity = firstClassTicketQuantity + 1;
+                newTicketQuantity = ticketQuantity + 1;
             }
-            if (isIncrease == false && newFirstClassTicketQuantity > 0) {
-                newFirstClassTicketQuantity = firstClassTicketQuantity - 1;
+            if (isIncrease == false && newTicketQuantity > 0) {
+                newTicketQuantity = ticketQuantity - 1;
             }
-            inputValue.value = newFirstClassTicketQuantity;
+            inputValue.value = newTicketQuantity;
             calculationTotal()
         }
 
@@ -214,7 +185,7 @@
 
             const economyClassTicketInput = document.getElementById("economyClass-ticket-quantity");
             const economyClassTicketQuantity = parseInt(economyClassTicketInput.value);
-
+            
             const SubTotalAmount = firstClassTicketQuantity * 150 + economyClassTicketQuantity * 100
             document.getElementById("subTotal-amount").innerText = SubTotalAmount;
 
@@ -225,7 +196,7 @@
             document.getElementById("total-amount").innerText = totalAmount;
 
         }
-
+        
     </script>
 </body>
 
